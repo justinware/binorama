@@ -59,7 +59,10 @@ export type HexadecimalSymbol = Prettify<
   | typeof F
 >;
 
-export type NumeralSystemSymbol = BinarySymbol | DecimalSymbol | HexadecimalSymbol;
+export type NumeralSystemSymbol =
+  | BinarySymbol
+  | DecimalSymbol
+  | HexadecimalSymbol;
 
 export interface NumeralSystem {
   type: NumeralSystemType;
@@ -67,6 +70,6 @@ export interface NumeralSystem {
   label: NumeralSystemLabel;
   symbols: NumeralSystemSymbol[];
 
-  isValid?: (value: string) => boolean;
-  convertTo?: (value: string, targetRadix: NumeralSystemRadix) => string;
+  isValid: (value: string) => boolean;
+  convertTo: (value: string, targetRadix: NumeralSystemRadix) => string;
 }

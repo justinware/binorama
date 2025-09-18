@@ -7,7 +7,8 @@
     "compile": "tsc --project tsconfig.app.json",
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "test": "vitest"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.13",
@@ -18,16 +19,17 @@
     "postcss-import": "^16.1.1",
     "postcss-nested": "^7.0.2",
     "postcss-simple-vars": "^7.0.1",
+    "tailwindcss": "^4.1.13",
     "typescript": "^5.9.2",
     "vite": "^7.1.5",
-    "vite-tsconfig-paths": "^5.1.4"
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.2.4"
   },
   "dependencies": {
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.12",
     "neverthrow": "^8.2.0",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "tailwindcss": "^4.1.13"
+    "react-dom": "^19.1.1"
   }
 }

@@ -7,4 +7,9 @@ export default defineConfig({
     tsconfigPaths(),
     react()
   ],
+  test: {
+    globals: true,
+    watch: false,
+    reporters: ['verbose']
+  }
 });
