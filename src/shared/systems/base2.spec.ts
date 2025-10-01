@@ -25,22 +25,22 @@ describe('The base2', () => {
   describe(TEST_DESCRIPTIONS.convertTo.main, () => {
     describe(TEST_DESCRIPTIONS.convertTo.toDecimal, () => {
       test.each(CONVERSION_TEST_CASES)(
-        'input = $binary, returns $decimal',
-        ({ binary, decimal }) => {
+        'input = $bin, returns $dec',
+        ({ bin, dec }) => {
           const { convertTo } = base2;
 
-          expect(convertTo(binary, TEN)).toBe(decimal);
+          expect(convertTo(bin, TEN)).toBe(dec);
         }
       );
     });
 
     describe(TEST_DESCRIPTIONS.convertTo.toHexadecimal, () => {
       test.each(CONVERSION_TEST_CASES)(
-        'input = $binary, returns $hexadecimal',
-        ({ binary, hexadecimal }) => {
+        'input = $bin, returns $hex',
+        ({ bin, hex }) => {
           const { convertTo } = base2;
 
-          expect(convertTo(binary, SIXTEEN)).toBe(hexadecimal);
+          expect(convertTo(bin, SIXTEEN)).toBe(hex);
         }
       );
     });

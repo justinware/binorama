@@ -19,7 +19,6 @@ import { useEffect } from 'react';
 // const queryClient = new QueryClient();
 
 const App = () => {
-
   // const getFile = async () => {
   //   const result = await trpc.getCodeModelByPath.query('src/server/index.ts');
 
@@ -30,9 +29,7 @@ const App = () => {
   //   getFile();
   // }, []);
 
-  return (
-    <Shell />
-  );
+  return <Shell />;
 };
 
 export default App;

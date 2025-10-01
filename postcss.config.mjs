@@ -1,13 +1,8 @@
 import postCssImport from 'postcss-import';
 import postCssNested from 'postcss-nested';
 import postCssSimpleVars from 'postcss-simple-vars';
-import tailwindPostcss from '@tailwindcss/postcss';
+import postCssTailwind from '@tailwindcss/postcss';
 
 export default {
-  plugins: [
-    postCssImport,
-    postCssNested,
-    postCssSimpleVars,
-    // tailwindPostcss
-  ]
-}
+  plugins: [postCssImport, postCssNested, postCssSimpleVars, postCssTailwind],
+};
