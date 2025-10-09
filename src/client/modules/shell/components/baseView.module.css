@@ -1,4 +1,22 @@
 .baseViewRoot {
-  display: flex;
-  flex-direction: column;
+  width: 33.333333%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding-left: var(--half-spacing);
+  padding-top: var(--half-spacing);
+  padding-bottom: var(--half-spacing);
+
+  &:last-child {
+    padding-right: var(--half-spacing);
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border-radius: 8px;
+    border: solid 1px red;
+    height: 100%;
+  }
 }

@@ -26,7 +26,3 @@
   --large-spacing: calc(var(--sizing-unit) * 2);
   --extra-large-spacing: calc(var(--sizing-unit) * 4);
 }
-
-body {
-  margin: 0;
-}
