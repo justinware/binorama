@@ -1,15 +1,10 @@
 .baseViewRoot {
-  width: 33.333333%;
+  width:;
   position: absolute;
   top: 0;
   bottom: 0;
-  padding-left: var(--half-spacing);
-  padding-top: var(--half-spacing);
-  padding-bottom: var(--half-spacing);
-
-  &:last-child {
-    padding-right: var(--half-spacing);
-  }
+  padding-top: 16px;
+  padding-bottom: 16px;
 
   .content {
     display: flex;

@@ -4,15 +4,15 @@ import type { CSSProperties } from 'react';
 
 const { baseViewRoot, content } = style;
 
-type BaseViewPros = NumeralSystem & { position: 1 | 2 | 3 };
+type BaseViewProps = NumeralSystem & { position: 1 | 2 | 3 };
 
 const positionMap = new Map<number, CSSProperties>([
-  [1, { left: 0 }],
-  [2, { left: '50%', transform: 'translateX(-50%)' }],
-  [3, { right: 0 }],
+  [1, { left: 0, paddingLeft: 16, paddingRight: 8 }],
+  [2, { left: '50%', transform: 'translateX(-50%)', paddingLeft: 8, paddingRight: 8 }],
+  [3, { right: 0, paddingLeft: 8, paddingRight: 16 }]
 ]);
 
-export const BaseView = ({ position, type, label }: BaseViewPros) => {
+export const BaseView = ({ position, type, label }: BaseViewProps) => {
   const id = `${type}-view`;
 
   return (
