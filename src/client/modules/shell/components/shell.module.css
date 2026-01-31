@@ -6,5 +6,7 @@
   .mainLayout {
     position: relative;
     flex: 1;
+    margin: var(--half-spacing);
+    margin-top: 0;
   }
 }

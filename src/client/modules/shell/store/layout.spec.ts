@@ -10,22 +10,22 @@ describe('useLayoutStore', () => {
     useLayoutStore.setState({ systemOrder: DEFAULT_SYSTEM_ORDER });
   });
 
-  test('initial systemOrder is [BASE_10, BASE_2, BASE_16]', () => {
+  test('initial systemOrder is [BASE_10, BASE_16, BASE_2]', () => {
 
-    expect(useLayoutStore.getState().systemOrder).toEqual([BASE_10, BASE_2, BASE_16] as NumeralSystemType[]);
+    expect(useLayoutStore.getState().systemOrder).toEqual([BASE_10, BASE_16, BASE_2] as NumeralSystemType[]);
   });
 
-  describe('setSystemOrder', () => {
+  describe('updateSystemOrder', () => {
     test(setsSystemOrderTo('[BASE_2, BASE_10, BASE_16]'), () => {
       const newOrder = [BASE_2, BASE_10, BASE_16] as NumeralSystemType[];
-      useLayoutStore.getState().setSystemOrder(newOrder);
+      useLayoutStore.getState().updateSystemOrder(newOrder);
 
       expect(useLayoutStore.getState().systemOrder).toEqual(newOrder);
     });
 
     test(setsSystemOrderTo('[BASE_16, BASE_10, BASE_2]'), () => {
       const newOrder = [BASE_16, BASE_10, BASE_2] as NumeralSystemType[];
-      useLayoutStore.getState().setSystemOrder(newOrder);
+      useLayoutStore.getState().updateSystemOrder(newOrder);
 
       expect(useLayoutStore.getState().systemOrder).toEqual(newOrder);
     });

@@ -1,21 +1,24 @@
-import base10 from '@shared/systems/base10';
+import systems from '@shared/systems';
+import { useLayoutStore } from '../store/layout';
 import { BaseView } from './baseView';
 import { Navigation } from './navigation';
 import styles from './shell.module.css';
 
-import base2 from '@shared/systems/base2';
-import base16 from '@shared/systems/base16';
-
 const { shellRoot, mainLayout } = styles;
 
 export const Shell = () => {
+  const systemOrder = useLayoutStore(state => state.systemOrder);
+  const sortedSystems = [...systems].sort(
+    (a, b) => systemOrder.indexOf(a.type) - systemOrder.indexOf(b.type)
+  );
+
   return (
     <div id="shell" className={shellRoot}>
       <Navigation />
       <div className={mainLayout}>
-        <BaseView {...base2} position={1} />
-        <BaseView {...base10} position={2} />
-        <BaseView {...base16} position={3} />
+        {sortedSystems.map(system => (
+          <BaseView key={system.type} {...system} />
+        ))}
       </div>
     </div>
   );

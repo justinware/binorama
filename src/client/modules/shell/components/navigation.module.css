@@ -1,4 +1,6 @@
 .navigationRoot {
   height: 48px;
   width: 100%;
+  padding-left: var(--sizing-unit);
+  padding-right: var(--sizing-unit);
 }

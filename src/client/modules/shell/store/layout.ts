@@ -4,12 +4,12 @@ import type { NumeralSystemType } from '@shared/types/base';
 
 interface LayoutState {
   systemOrder: NumeralSystemType[];
-  setSystemOrder: (order: NumeralSystemType[]) => void;
+  updateSystemOrder: (order: NumeralSystemType[]) => void;
 }
 
-export const DEFAULT_SYSTEM_ORDER: NumeralSystemType[] = [BASE_10, BASE_2, BASE_16];
+export const DEFAULT_SYSTEM_ORDER: NumeralSystemType[] = [BASE_10, BASE_16, BASE_2];
 
 export const useLayoutStore = create<LayoutState>(set => ({
   systemOrder: DEFAULT_SYSTEM_ORDER,
-  setSystemOrder: order => set({ systemOrder: order })
+  updateSystemOrder: order => set({ systemOrder: order })
 }));

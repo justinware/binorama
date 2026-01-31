@@ -1,17 +1,29 @@
 .baseViewRoot {
-  width:;
+  width: 33.33%;
   position: absolute;
   top: 0;
   bottom: 0;
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding: var(--half-spacing);
 
   .content {
     display: flex;
     flex-direction: column;
     flex: 1;
-    border-radius: 8px;
+    border-radius: 6px;
     border: solid 1px red;
     height: 100%;
+  }
+
+  &:nth-child(1) {
+    left: 0;
+  }
+
+  &:nth-child(2) {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &:nth-child(3) {
+    right: 0;
   }
 }
