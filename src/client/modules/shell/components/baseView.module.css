@@ -19,11 +19,10 @@
   }
 
   &:nth-child(2) {
-    left: 50%;
-    transform: translateX(-50%);
+    left: 33.33%;
   }
 
   &:nth-child(3) {
-    right: 0;
+    left: 66.66%;
   }
 }
