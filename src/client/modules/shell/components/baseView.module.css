@@ -26,3 +26,25 @@
     left: 66.66%;
   }
 }
+
+.section {
+  padding: 8px;
+  text-align: right;
+}
+
+.sectionTitle {
+}
+
+.sectionInput {
+}
+
+.sectionMath {
+}
+
+.sectionVisual {
+  flex: 1;
+}
+
+.inputInvalid {
+  border: 1px solid red;
+}
