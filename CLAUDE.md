@@ -55,6 +55,8 @@ Components use CSS Modules for scoped styling.
 - Use single quotes for all TypeScript/JavaScript code
 - Uses `neverthrow` for Result types in error handling
 - Strict TypeScript with `noUnusedLocals` and `noUnusedParameters` enabled
+- Always use braces for `if` statements, even single-line returns (no inline returns)
 - Test files use `.spec.ts` extension and live alongside source files
-- Tests use `test.each()` for data-driven testing with constants from `__tests__/constants.ts`
+- Tests use `test.each()` for data-driven testing to minimize repetition
+- Use typed test case arrays, string constants, and template strings for test descriptions
 - In tests, add a blank line before assertions

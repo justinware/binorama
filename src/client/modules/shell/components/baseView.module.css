@@ -36,6 +36,9 @@
 }
 
 .sectionInput {
+  input {
+    text-align: right;
+  }
 }
 
 .sectionMath {
