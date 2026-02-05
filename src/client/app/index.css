@@ -25,4 +25,31 @@
   --moderate-spacing: calc(var(--sizing-unit) * 1.5);
   --large-spacing: calc(var(--sizing-unit) * 2);
   --extra-large-spacing: calc(var(--sizing-unit) * 4);
+
+  /* Theme */
+  --background-colour: #272325;
+  --text-colour: #fff6e6;
+  --terminal-colour: #4af262;
+}
+
+/* Typography */
+body {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  font-style: normal;
+  background-color: var(--background-colour);
+  color: var(--text-colour);
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    letter-spacing: 2px;
+    line-height: 1.1;
+  }
 }

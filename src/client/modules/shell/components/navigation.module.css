@@ -1,6 +1,14 @@
 .navigationRoot {
-  height: 48px;
+  display: flex;
+  align-items: center;
+  height: 68px;
   width: 100%;
   padding-left: var(--sizing-unit);
   padding-right: var(--sizing-unit);
+  border-bottom: dashed 1px var(--text-colour);
+
+  h1 {
+    font-size: 36px;
+    margin-top: 4px;
+  }
 }

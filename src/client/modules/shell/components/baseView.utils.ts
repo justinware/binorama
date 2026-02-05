@@ -1,20 +1,26 @@
 import type { NumeralSystemRadix, NumeralSystemType } from '@shared/types/base';
 import systems from '@shared/systems';
 
-export const getMathBreakdown = (value: string, radix: NumeralSystemRadix): string => {
+export const getMathBreakdown = (value: string, radix: NumeralSystemRadix): string[] => {
   if (!value) {
-    return '';
+    return [];
   }
 
   const digits = value.split('');
-  const terms = digits.map((digit, index) => {
+  const baseTerms = digits.map((digit, index) => {
     const digitValue = parseInt(digit, radix);
     const placeValue = Math.pow(radix, digits.length - 1 - index);
 
     return `(${digitValue} x ${placeValue})`;
   });
 
-  return terms.join(' + ');
+  const maxLength = Math.max(...baseTerms.map((t) => t.length));
+
+  return baseTerms.map((term, index) => {
+    const isLast = index === baseTerms.length - 1;
+
+    return `${term.padEnd(maxLength)}${isLast ? '' : ' +'}`;
+  });
 };
 
 export const getDisplayValue = (

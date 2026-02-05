@@ -7,7 +7,7 @@ import styles from './shell.module.css';
 
 const { shellRoot, mainLayout, swapColumnsButton } = styles;
 
-const SWAP_COLUMN_ICON_SIZE = 20;
+const SWAP_COLUMN_ICON_SIZE = 24;
 
 export const Shell = () => {
   const systemOrder = useLayoutStore(state => state.systemOrder);

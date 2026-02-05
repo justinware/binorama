@@ -4,13 +4,12 @@
   top: 0;
   bottom: 0;
   padding: var(--half-spacing);
+  padding-left: 24px;
 
   .content {
     display: flex;
     flex-direction: column;
     flex: 1;
-    border-radius: 6px;
-    border: solid 1px red;
     height: 100%;
   }
 
@@ -29,25 +28,47 @@
 
 .section {
   padding: 8px;
-  text-align: right;
+  text-align: left;
 }
 
 .sectionTitle {
+  text-align: center;
+  font-size: 32px;
 }
 
 .sectionInput {
+  position: relative;
+
   input {
-    text-align: right;
+    text-align: left;
+    font-size: 32px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: inherit;
+    color: var(--terminal-colour);
   }
 }
 
+.inputArrow {
+  position: absolute;
+  left: -24px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 32px;
+  color: var(--terminal-colour);
+}
+
+.sectionRow {
+  display: flex;
+  flex: 1;
+}
+
 .sectionMath {
+  flex: 1;
+  white-space: pre;
 }
 
 .sectionVisual {
   flex: 1;
-}
-
-.inputInvalid {
-  border: 1px solid red;
 }
