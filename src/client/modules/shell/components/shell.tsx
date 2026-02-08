@@ -5,8 +5,7 @@ import { BaseView } from './baseView';
 import { Navigation } from './navigation';
 import styles from './shell.module.css';
 
-const { shellRoot, mainLayout, swapColumnsButtonWrapper, swapColumnsButton } =
-  styles;
+const { shellRoot, mainLayout, swapColumnsButtonWrapper, swapColumnsButton } = styles;
 
 const SWAP_COLUMN_ICON_SIZE = 24;
 
@@ -27,27 +26,21 @@ export const Shell = () => {
   return (
     <div id="shell" className={shellRoot}>
       <Navigation />
-      <div className={mainLayout}>
+      <main className={mainLayout}>
         {sortedSystems.map(system => (
           <BaseView key={system.type} {...system} />
         ))}
         <div className={swapColumnsButtonWrapper}>
-          <button
-            className={swapColumnsButton}
-            onClick={() => swapColumns(0, 1)}
-          >
+          <button className={swapColumnsButton} onClick={() => swapColumns(0, 1)}>
             <ArrowLeftRight size={SWAP_COLUMN_ICON_SIZE} />
           </button>
         </div>
         <div className={swapColumnsButtonWrapper}>
-          <button
-            className={swapColumnsButton}
-            onClick={() => swapColumns(1, 2)}
-          >
+          <button className={swapColumnsButton} onClick={() => swapColumns(1, 2)}>
             <ArrowLeftRight size={SWAP_COLUMN_ICON_SIZE} />
           </button>
         </div>
-      </div>
+      </main>
     </div>
   );
 };

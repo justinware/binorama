@@ -39,6 +39,25 @@
 .sectionInput {
   position: relative;
 
+  &::before {
+    content: '›';
+    position: absolute;
+    left: -24px;
+    top: 50%;
+    transform: translateY(-50%) translateX(-4px);
+    font-size: 32px;
+    color: var(--terminal-colour);
+    opacity: 0;
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  &:has(input:focus)::before {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+
   input {
     text-align: left;
     font-size: 32px;
@@ -47,17 +66,13 @@
     outline: none;
     color: inherit;
     color: var(--terminal-colour);
-    border-bottom: solid 2px var(--terminal-colour);
-  }
-}
+    border-bottom: solid 2px transparent;
+    transition: border-color 0.2s ease;
 
-.inputArrow {
-  position: absolute;
-  left: -24px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 32px;
-  color: var(--terminal-colour);
+    &:focus {
+      border-bottom-color: var(--terminal-colour);
+    }
+  }
 }
 
 .sectionRow {

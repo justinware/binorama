@@ -4,8 +4,8 @@ const { navigationRoot } = styles;
 
 export const Navigation = () => {
   return (
-    <div id="navigation" className={navigationRoot}>
+    <header id="navigation" className={navigationRoot}>
       <h1>Binorama</h1>
-    </div>
+    </header>
   );
 };
