@@ -5,7 +5,7 @@ import { BaseView } from './baseView';
 import { Navigation } from './navigation';
 import styles from './shell.module.css';
 
-const { shellRoot, mainLayout, swapColumnsButtonWrapper, swapColumnsButton } = styles;
+const { shellRoot, mainLayout, systemDivider, swapColumnsButton } = styles;
 
 const SWAP_COLUMN_ICON_SIZE = 24;
 
@@ -30,12 +30,12 @@ export const Shell = () => {
         {sortedSystems.map(system => (
           <BaseView key={system.type} {...system} />
         ))}
-        <div className={swapColumnsButtonWrapper}>
+        <div className={systemDivider}>
           <button className={swapColumnsButton} onClick={() => swapColumns(0, 1)}>
             <ArrowLeftRight size={SWAP_COLUMN_ICON_SIZE} />
           </button>
         </div>
-        <div className={swapColumnsButtonWrapper}>
+        <div className={systemDivider}>
           <button className={swapColumnsButton} onClick={() => swapColumns(1, 2)}>
             <ArrowLeftRight size={SWAP_COLUMN_ICON_SIZE} />
           </button>

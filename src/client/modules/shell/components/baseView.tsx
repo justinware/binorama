@@ -43,7 +43,7 @@ export const BaseView = ({ type, label, radix, isValid }: BaseViewProps) => {
         <div className={`${section} ${sectionInput}`}>
           <input
             type="text"
-            placeholder={`${label} value...`}
+            placeholder={`${(42).toString(radix).toUpperCase()}...`}
             value={displayValue}
             onChange={(e) => handleChange(e.target.value)}
           />
