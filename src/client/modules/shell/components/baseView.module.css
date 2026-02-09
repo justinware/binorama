@@ -4,13 +4,18 @@
   top: 0;
   bottom: 0;
   padding: var(--half-spacing);
-  padding-left: 24px;
+  padding-left: 20px;
 
   .content {
     display: flex;
     flex-direction: column;
     flex: 1;
     height: 100%;
+    gap: var(--half-spacing);
+
+    &:nth-child(1) {
+      padding-top: var(--half-spacing);
+    }
   }
 
   &:nth-child(1) {
@@ -27,7 +32,7 @@
 }
 
 .section {
-  padding: 8px;
+  padding: var(--half-spacing);
   text-align: left;
 }
 
@@ -42,7 +47,7 @@
   &::before {
     content: '›';
     position: absolute;
-    left: -24px;
+    left: -16px;
     top: 50%;
     transform: translateY(-50%) translateX(-4px);
     font-size: 32px;
@@ -68,11 +73,41 @@
     color: var(--terminal-colour);
     border-bottom: solid 2px transparent;
     transition: border-color 0.2s ease;
+    width: 100%;
 
     &:focus {
       border-bottom-color: var(--terminal-colour);
     }
   }
+}
+
+.mathTerms {
+  position: relative;
+
+  strong {
+    color: var(--terminal-colour);
+  }
+}
+
+.termOpen {
+  margin-right: 0.3ch;
+}
+
+.termClose {
+  margin-left: 0.3ch;
+}
+
+.mathTotal {
+  font-weight: bold;
+}
+
+.digitHighlight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(2ch - 9px);
+  border: 1px dashed var(--terminal-colour);
+  pointer-events: none;
 }
 
 .sectionRow {

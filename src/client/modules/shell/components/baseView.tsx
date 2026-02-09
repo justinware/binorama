@@ -13,6 +13,9 @@ const {
   sectionRow,
   sectionMath,
   sectionVisual,
+  mathTerms,
+  mathTotal,
+  digitHighlight
 } = style;
 
 type BaseViewProps = NumeralSystem;
@@ -22,7 +25,12 @@ export const BaseView = ({ type, label, radix, isValid }: BaseViewProps) => {
   const { sourceSystem, sourceValue, updateSourceSystem, updateSourceValue } = useValueStore();
 
   const displayValue = getDisplayValue(sourceSystem, sourceValue, type, radix);
-  const mathBreakdown = getMathBreakdown(displayValue, radix);
+  const {
+    terms: mathBreakdown,
+    digitWidth,
+    divider,
+    total
+  } = getMathBreakdown(displayValue, radix);
 
   const handleChange = (input: string) => {
     if (input === '' || isValid(input)) {
@@ -45,14 +53,25 @@ export const BaseView = ({ type, label, radix, isValid }: BaseViewProps) => {
             type="text"
             placeholder={`${(42).toString(radix).toUpperCase()}...`}
             value={displayValue}
-            onChange={(e) => handleChange(e.target.value)}
+            onChange={e => handleChange(e.target.value)}
           />
         </div>
         <div className={sectionRow}>
           <div className={`${section} ${sectionMath}`}>
-            {mathBreakdown.map((term, index) => (
-              <div key={index}>{term}</div>
-            ))}
+            <div className={mathTerms}>
+              {mathBreakdown.map((term, index) => (
+                <div key={index}>{term}</div>
+              ))}
+              {/* {displayValue && (
+                <div className={digitHighlight} style={{ width: `calc(${digitWidth}ch + 6px)` }} />
+              )} */}
+            </div>
+            {displayValue && (
+              <>
+                <div>{divider}</div>
+                <div className={mathTotal}>= {total}</div>
+              </>
+            )}
           </div>
           <div className={`${section} ${sectionVisual}`}>Visual breakdown</div>
         </div>

@@ -9,16 +9,19 @@ const inputReturns = (input: string, expected: string) => `input = ${input}, ret
 type MathBreakdownCase = {
   value: string;
   radix: NumeralSystemRadix;
-  expected: string;
+  expectedTermCount: number;
+  expectedDigitWidth: number;
+  expectedDividerLength: number;
+  expectedTotal: number;
 };
 
 const MATH_BREAKDOWN_CASES: MathBreakdownCase[] = [
-  { value: '', radix: TEN, expected: '' },
-  { value: '5', radix: TEN, expected: '(5 x 1)' },
-  { value: '112', radix: TEN, expected: '(1 x 100) + (1 x 10) + (2 x 1)' },
-  { value: '101', radix: TWO, expected: '(1 x 4) + (0 x 2) + (1 x 1)' },
-  { value: 'FF', radix: SIXTEEN, expected: '(15 x 16) + (15 x 1)' },
-  { value: 'A3', radix: SIXTEEN, expected: '(10 x 16) + (3 x 1)' }
+  { value: '', radix: TEN, expectedTermCount: 0, expectedDigitWidth: 0, expectedDividerLength: 0, expectedTotal: 0 },
+  { value: '5', radix: TEN, expectedTermCount: 1, expectedDigitWidth: 1, expectedDividerLength: 11, expectedTotal: 5 },
+  { value: '112', radix: TEN, expectedTermCount: 3, expectedDigitWidth: 1, expectedDividerLength: 13, expectedTotal: 112 },
+  { value: '101', radix: TWO, expectedTermCount: 3, expectedDigitWidth: 1, expectedDividerLength: 12, expectedTotal: 5 },
+  { value: 'FF', radix: SIXTEEN, expectedTermCount: 2, expectedDigitWidth: 2, expectedDividerLength: 14, expectedTotal: 255 },
+  { value: 'A3', radix: SIXTEEN, expectedTermCount: 2, expectedDigitWidth: 2, expectedDividerLength: 14, expectedTotal: 163 }
 ];
 
 type DisplayValueCase = {
@@ -50,11 +53,14 @@ const DISPLAY_VALUE_CONVERSION_CASES: DisplayValueCase[] = [
 
 describe('getMathBreakdown', () => {
   test.each(MATH_BREAKDOWN_CASES)(
-    'value = $value, radix = $radix, returns $expected',
-    ({ value, radix, expected }) => {
-      const result = getMathBreakdown(value, radix);
+    'value = $value, radix = $radix',
+    ({ value, radix, expectedTermCount, expectedDigitWidth, expectedDividerLength, expectedTotal }) => {
+      const { terms, digitWidth, divider, total } = getMathBreakdown(value, radix);
 
-      expect(result).toBe(expected);
+      expect(terms).toHaveLength(expectedTermCount);
+      expect(digitWidth).toBe(expectedDigitWidth);
+      expect(divider).toBe('-'.repeat(expectedDividerLength));
+      expect(total).toBe(expectedTotal);
     }
   );
 });

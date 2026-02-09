@@ -6,20 +6,20 @@
   .mainLayout {
     position: relative;
     flex: 1;
-    margin: var(--half-spacing);
     /* TODO: Fix the main layout width to 1200px, and wrap the content for mobile devices */
     /* max-width: 1200px; */
   }
 
   .systemDivider {
     position: absolute;
-    top: -8px;
+    top: 0;
     bottom: 0;
     transform: translateX(-50%);
     z-index: 10;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
+    justify-content: stretch;
 
     &:nth-last-of-type(2) {
       left: 33.33%;
@@ -28,15 +28,28 @@
     &:nth-last-of-type(1) {
       left: 66.66%;
     }
-  }
 
-  .swapColumnsButton {
-    border: none;
-    background: transparent;
-    color: var(--text-colour);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    .border {
+      width: 1px;
+      border-right: dashed 1px var(--text-colour);
+      flex: 1;
+    }
+
+    .swapColumnsButton {
+      border: none;
+      background: transparent;
+      color: var(--text-colour);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--terminal-colour);
+      }
+    }
   }
 }
