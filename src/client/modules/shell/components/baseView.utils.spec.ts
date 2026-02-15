@@ -17,11 +17,11 @@ type MathBreakdownCase = {
 
 const MATH_BREAKDOWN_CASES: MathBreakdownCase[] = [
   { value: '', radix: TEN, expectedTermCount: 0, expectedDigitWidth: 0, expectedDividerLength: 0, expectedTotal: 0 },
-  { value: '5', radix: TEN, expectedTermCount: 1, expectedDigitWidth: 1, expectedDividerLength: 11, expectedTotal: 5 },
+  { value: '5', radix: TEN, expectedTermCount: 1, expectedDigitWidth: 1, expectedDividerLength: 9, expectedTotal: 5 },
   { value: '112', radix: TEN, expectedTermCount: 3, expectedDigitWidth: 1, expectedDividerLength: 13, expectedTotal: 112 },
-  { value: '101', radix: TWO, expectedTermCount: 3, expectedDigitWidth: 1, expectedDividerLength: 12, expectedTotal: 5 },
-  { value: 'FF', radix: SIXTEEN, expectedTermCount: 2, expectedDigitWidth: 2, expectedDividerLength: 14, expectedTotal: 255 },
-  { value: 'A3', radix: SIXTEEN, expectedTermCount: 2, expectedDigitWidth: 2, expectedDividerLength: 14, expectedTotal: 163 }
+  { value: '101', radix: TWO, expectedTermCount: 3, expectedDigitWidth: 1, expectedDividerLength: 11, expectedTotal: 5 },
+  { value: 'FF', radix: SIXTEEN, expectedTermCount: 2, expectedDigitWidth: 2, expectedDividerLength: 13, expectedTotal: 255 },
+  { value: 'A3', radix: SIXTEEN, expectedTermCount: 2, expectedDigitWidth: 2, expectedDividerLength: 13, expectedTotal: 163 }
 ];
 
 type DisplayValueCase = {
@@ -55,7 +55,7 @@ describe('getMathBreakdown', () => {
   test.each(MATH_BREAKDOWN_CASES)(
     'value = $value, radix = $radix',
     ({ value, radix, expectedTermCount, expectedDigitWidth, expectedDividerLength, expectedTotal }) => {
-      const { terms, digitWidth, divider, total } = getMathBreakdown(value, radix);
+      const { terms, digitWidth, divider, total } = getMathBreakdown(value, radix, false);
 
       expect(terms).toHaveLength(expectedTermCount);
       expect(digitWidth).toBe(expectedDigitWidth);

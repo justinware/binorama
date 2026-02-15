@@ -60,3 +60,5 @@ Components use CSS Modules for scoped styling.
 - Tests use `test.each()` for data-driven testing to minimize repetition
 - Use typed test case arrays, string constants, and template strings for test descriptions
 - In tests, add a blank line before assertions
+- Avoid duplicating code structures — extract varying parts into variables or helpers rather than repeating templates
+- In CSS Modules, nest all classes under the root class to reflect DOM hierarchy — avoid flat top-level classes

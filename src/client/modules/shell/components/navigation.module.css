@@ -1,6 +1,7 @@
 .navigationRoot {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 68px;
   width: 100%;
   padding-left: var(--sizing-unit);
@@ -10,5 +11,43 @@
   h1 {
     font-size: 36px;
     margin-top: 4px;
+  }
+
+  .switchGroup {
+    display: flex;
+    align-items: center;
+    gap: var(--half-spacing);
+
+    .switchRoot {
+      width: 42px;
+      height: 24px;
+      background-color: var(--text-colour);
+      border-radius: 12px;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      position: relative;
+      opacity: 0.4;
+      transition: opacity 0.2s ease;
+
+      &[data-state='checked'] {
+        opacity: 1;
+        background-color: var(--terminal-colour);
+      }
+
+      .switchThumb {
+        display: block;
+        width: 18px;
+        height: 18px;
+        background-color: var(--background-colour);
+        border-radius: 50%;
+        transition: transform 0.2s ease;
+        transform: translateX(3px);
+
+        &[data-state='checked'] {
+          transform: translateX(21px);
+        }
+      }
+    }
   }
 }

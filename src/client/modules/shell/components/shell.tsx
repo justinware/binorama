@@ -7,7 +7,7 @@ import styles from './shell.module.css';
 
 const { shellRoot, mainLayout, systemDivider, swapColumnsButton, border } = styles;
 
-const SWAP_COLUMN_ICON_SIZE = 24;
+const SWAP_COLUMN_ICON_SIZE = 22;
 
 export const Shell = () => {
   const systemOrder = useLayoutStore(state => state.systemOrder);
@@ -37,8 +37,8 @@ export const Shell = () => {
     <div id="shell" className={shellRoot}>
       <Navigation />
       <main className={mainLayout}>
-        {sortedSystems.map(system => (
-          <BaseView key={system.type} {...system} />
+        {sortedSystems.map((system, index) => (
+          <BaseView key={system.type} {...system} position={index} />
         ))}
         {getDivider(0)}
         {getDivider(1)}

@@ -30,12 +30,16 @@
   --background-colour: #272325;
   --text-colour: #fff6e6;
   --terminal-colour: #4af262;
+  --highlight-colour: #ffe337;
+  --border-colour: #858585;
 }
 
 /* Typography */
 body {
   font-family: 'IBM Plex Mono', monospace;
-  font-weight: 400;
+  font-feature-settings: 'liga' 0;
+  line-height: 1.7;
+  font-weight: 300;
   font-style: normal;
   background-color: var(--background-colour);
   color: var(--text-colour);

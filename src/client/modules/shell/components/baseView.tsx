@@ -1,5 +1,8 @@
+import { useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import type { NumeralSystem } from '@shared/types/base';
+import { useLayoutStore } from '../store/layout';
+import { useThemeStore } from '../store/theme';
 import { useValueStore } from '../store/value';
 import { getDisplayValue, getMathBreakdown } from './baseView.utils';
 import style from './baseView.module.css';
@@ -18,11 +21,20 @@ const {
   digitHighlight
 } = style;
 
-type BaseViewProps = NumeralSystem;
+type BaseViewProps = NumeralSystem & { position: number };
 
-export const BaseView = ({ type, label, radix, isValid }: BaseViewProps) => {
+export const BaseView = ({ type, label, radix, isValid, position }: BaseViewProps) => {
   const id = `${type}-view`;
+  const inputRef = useRef<HTMLInputElement>(null);
   const { sourceSystem, sourceValue, updateSourceSystem, updateSourceValue } = useValueStore();
+  const exponentNotation = useThemeStore(state => state.exponentNotation);
+  const updateSystemOrder = useLayoutStore(state => state.updateSystemOrder);
+
+  useEffect(() => {
+    if (position === 0) {
+      inputRef.current?.focus();
+    }
+  }, [position, updateSystemOrder]);
 
   const displayValue = getDisplayValue(sourceSystem, sourceValue, type, radix);
   const {
@@ -30,7 +42,7 @@ export const BaseView = ({ type, label, radix, isValid }: BaseViewProps) => {
     digitWidth,
     divider,
     total
-  } = getMathBreakdown(displayValue, radix);
+  } = getMathBreakdown(displayValue, radix, exponentNotation);
 
   const handleChange = (input: string) => {
     if (input === '' || isValid(input)) {
@@ -50,6 +62,7 @@ export const BaseView = ({ type, label, radix, isValid }: BaseViewProps) => {
         <h2 className={`${section} ${sectionTitle}`}>{label}</h2>
         <div className={`${section} ${sectionInput}`}>
           <input
+            ref={inputRef}
             type="text"
             placeholder={`${(42).toString(radix).toUpperCase()}...`}
             value={displayValue}

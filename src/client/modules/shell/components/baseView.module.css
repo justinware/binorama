@@ -4,7 +4,19 @@
   top: 0;
   bottom: 0;
   padding: var(--half-spacing);
-  padding-left: 20px;
+  padding-left: 24px;
+
+  &:nth-child(1) {
+    left: 0;
+  }
+
+  &:nth-child(2) {
+    left: 33.33%;
+  }
+
+  &:nth-child(3) {
+    left: 66.66%;
+  }
 
   .content {
     display: flex;
@@ -18,108 +30,97 @@
     }
   }
 
-  &:nth-child(1) {
-    left: 0;
-  }
-
-  &:nth-child(2) {
-    left: 33.33%;
-  }
-
-  &:nth-child(3) {
-    left: 66.66%;
-  }
-}
-
-.section {
-  padding: var(--half-spacing);
-  text-align: left;
-}
-
-.sectionTitle {
-  text-align: center;
-  font-size: 32px;
-}
-
-.sectionInput {
-  position: relative;
-
-  &::before {
-    content: '›';
-    position: absolute;
-    left: -16px;
-    top: 50%;
-    transform: translateY(-50%) translateX(-4px);
-    font-size: 32px;
-    color: var(--terminal-colour);
-    opacity: 0;
-    transition:
-      opacity 0.2s ease,
-      transform 0.2s ease;
-  }
-
-  &:has(input:focus)::before {
-    opacity: 1;
-    transform: translateY(-50%) translateX(0);
-  }
-
-  input {
+  .section {
+    padding: var(--half-spacing);
     text-align: left;
-    font-size: 32px;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: inherit;
-    color: var(--terminal-colour);
-    border-bottom: solid 2px transparent;
-    transition: border-color 0.2s ease;
-    width: 100%;
+  }
 
-    &:focus {
-      border-bottom-color: var(--terminal-colour);
+  .sectionTitle {
+    text-align: center;
+    font-size: 32px;
+  }
+
+  .sectionInput {
+    position: relative;
+
+    &::before {
+      content: '›';
+      position: absolute;
+      left: -16px;
+      top: 50%;
+      transform: translateY(-50%) translateX(-4px);
+      font-size: 32px;
+      color: var(--terminal-colour);
+      opacity: 0;
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    &:has(input:focus)::before {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0);
+    }
+
+    input {
+      text-align: left;
+      font-size: 32px;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--terminal-colour);
+      border-bottom: solid 1px var(--border-colour);
+      transition: all 0.2s ease;
+      width: 100%;
+
+      &:focus {
+        border-bottom-color: var(--terminal-colour);
+        border-bottom-width: 2px;
+      }
     }
   }
-}
 
-.mathTerms {
-  position: relative;
-
-  strong {
-    color: var(--terminal-colour);
+  .sectionRow {
+    display: flex;
+    flex: 1;
   }
-}
 
-.termOpen {
-  margin-right: 0.3ch;
-}
+  .sectionMath {
+    flex: 1;
+    white-space: pre;
 
-.termClose {
-  margin-left: 0.3ch;
-}
+    .mathTerms {
+      position: relative;
+      line-height: 1.5;
 
-.mathTotal {
-  font-weight: bold;
-}
+      strong {
+        color: var(--terminal-colour);
+      }
 
-.digitHighlight {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: calc(2ch - 9px);
-  border: 1px dashed var(--terminal-colour);
-  pointer-events: none;
-}
+      .termOpen {
+        margin-right: 0.3ch;
+      }
 
-.sectionRow {
-  display: flex;
-  flex: 1;
-}
+      .termClose {
+        margin-left: 0.3ch;
+      }
 
-.sectionMath {
-  flex: 1;
-  white-space: pre;
-}
+      .digitHighlight {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: calc(2ch - 9px);
+        border: 1px dashed var(--terminal-colour);
+        pointer-events: none;
+      }
+    }
 
-.sectionVisual {
-  flex: 1;
+    .mathTotal {
+      font-weight: bold;
+    }
+  }
+
+  .sectionVisual {
+    flex: 1;
+  }
 }

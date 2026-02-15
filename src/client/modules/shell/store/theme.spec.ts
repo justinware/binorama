@@ -7,7 +7,7 @@ const togglesFrom = (from: string, to: string) => `toggles from ${from} to ${to}
 
 describe('useThemeStore', () => {
   beforeEach(() => {
-    useThemeStore.setState({ theme: LIGHT });
+    useThemeStore.setState({ theme: LIGHT, exponentNotation: false });
   });
 
   test(initialTheme(LIGHT), () => {
@@ -41,6 +41,25 @@ describe('useThemeStore', () => {
       useThemeStore.getState().toggleTheme();
 
       expect(useThemeStore.getState().theme).toBe(LIGHT);
+    });
+  });
+
+  test('initial exponentNotation is false', () => {
+    expect(useThemeStore.getState().exponentNotation).toBe(false);
+  });
+
+  describe('toggleExponentNotation', () => {
+    test('toggles from false to true', () => {
+      useThemeStore.getState().toggleExponentNotation();
+
+      expect(useThemeStore.getState().exponentNotation).toBe(true);
+    });
+
+    test('toggles from true to false', () => {
+      useThemeStore.setState({ exponentNotation: true });
+      useThemeStore.getState().toggleExponentNotation();
+
+      expect(useThemeStore.getState().exponentNotation).toBe(false);
     });
   });
 });
