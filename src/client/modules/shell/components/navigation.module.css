@@ -18,6 +18,10 @@
     align-items: center;
     gap: var(--half-spacing);
 
+    sup {
+      line-height: 0;
+    }
+
     .switchRoot {
       width: 42px;
       height: 24px;

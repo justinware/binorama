@@ -91,10 +91,15 @@
 
     .mathTerms {
       position: relative;
-      line-height: 1.5;
+      line-height: 1.75;
+      width: max-content;
 
       strong {
         color: var(--terminal-colour);
+      }
+
+      sup {
+        line-height: 0;
       }
 
       .termOpen {
@@ -117,6 +122,10 @@
 
     .mathTotal {
       font-weight: bold;
+      border-top: 1px solid var(--border-colour);
+      margin-top: 0.5em;
+      padding-top: 0.5em;
+      text-align: right;
     }
   }
 

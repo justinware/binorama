@@ -24,6 +24,8 @@ export const getMathBreakdown = (
   const digitValues = digits.map(d => parseInt(d, radix));
   const digitWidth = Math.max(...digitValues.map(v => v.toString().length));
 
+  const maxPlaceValueWidth = Math.pow(radix, digits.length - 1).toString().length;
+
   const getOperand = (index: number): { flat: string; jsx: ReactNode } => {
     const exponent = digits.length - 1 - index;
 
@@ -40,25 +42,25 @@ export const getMathBreakdown = (
     }
 
     const placeValue = Math.pow(radix, exponent).toString();
+    const paddedPlaceValue = placeValue.padStart(maxPlaceValueWidth);
 
-    return { flat: placeValue, jsx: <>{placeValue}</> };
+    return { flat: paddedPlaceValue, jsx: <>{paddedPlaceValue}</> };
   };
 
-  // Compute flat term strings for divider width calculation
-  const flatTerms = digits.map((digit, index) => {
+  // Compute sub-sums for each digit
+  const subSums = digits.map((digit, index) => {
     const digitValue = parseInt(digit, radix);
-    const paddedDigit = digitValue.toString().padEnd(digitWidth);
+    const exponent = digits.length - 1 - index;
 
-    return `(${paddedDigit} x ${getOperand(index).flat})`;
+    return digitValue * Math.pow(radix, exponent);
   });
-
-  const maxFlatLength = Math.max(...flatTerms.map(t => t.length));
-  const dividerWidth = digits.length > 1 ? maxFlatLength + 2 : maxFlatLength;
+  const subSumWidth = Math.max(...subSums.map(s => s.toString().length));
 
   // Build JSX terms
   const terms: ReactNode[] = digits.map((digit, index) => {
     const digitValue = parseInt(digit, radix);
     const paddedDigit = digitValue.toString().padEnd(digitWidth);
+    const paddedSubSum = subSums[index].toString().padStart(subSumWidth);
     const isLast = index === digits.length - 1;
 
     return (
@@ -67,10 +69,9 @@ export const getMathBreakdown = (
         <strong>{paddedDigit}</strong>
         {' x '}
         {getOperand(index).jsx}
-        <span className={termClose}>
-          {')'}
-          {isLast ? '' : ' +'}
-        </span>
+        <span className={termClose}>)</span>
+        {` = ${paddedSubSum}`}
+        {isLast ? '' : ' +'}
       </>
     );
   });
@@ -78,7 +79,7 @@ export const getMathBreakdown = (
   return {
     terms,
     digitWidth,
-    divider: '-'.repeat(dividerWidth),
+    divider: '',
     total: parseInt(value, radix)
   };
 };

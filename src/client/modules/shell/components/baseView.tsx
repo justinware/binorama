@@ -37,12 +37,7 @@ export const BaseView = ({ type, label, radix, isValid, position }: BaseViewProp
   }, [position, updateSystemOrder]);
 
   const displayValue = getDisplayValue(sourceSystem, sourceValue, type, radix);
-  const {
-    terms: mathBreakdown,
-    digitWidth,
-    divider,
-    total
-  } = getMathBreakdown(displayValue, radix, exponentNotation);
+  const { terms: mathBreakdown, total } = getMathBreakdown(displayValue, radix, exponentNotation);
 
   const handleChange = (input: string) => {
     if (input === '' || isValid(input)) {
@@ -78,13 +73,15 @@ export const BaseView = ({ type, label, radix, isValid, position }: BaseViewProp
               {/* {displayValue && (
                 <div className={digitHighlight} style={{ width: `calc(${digitWidth}ch + 6px)` }} />
               )} */}
+              {displayValue && (
+                <div
+                  className={mathTotal}
+                  style={{ paddingRight: mathBreakdown.length > 1 ? '2ch' : undefined }}
+                >
+                  {total}
+                </div>
+              )}
             </div>
-            {displayValue && (
-              <>
-                <div>{divider}</div>
-                <div className={mathTotal}>= {total}</div>
-              </>
-            )}
           </div>
           <div className={`${section} ${sectionVisual}`}>Visual breakdown</div>
         </div>
