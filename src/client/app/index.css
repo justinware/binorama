@@ -34,6 +34,11 @@
   --border-colour: #858585;
 }
 
+[data-theme='light'] {
+  --background-colour: #fff6e6;
+  --text-colour: rgba(0, 0, 0, 0.75);
+}
+
 /* Typography */
 body {
   font-family: 'IBM Plex Mono', monospace;
@@ -41,8 +46,6 @@ body {
   line-height: 1.7;
   font-weight: 300;
   font-style: normal;
-  background-color: var(--background-colour);
-  color: var(--text-colour);
 
   h1,
   h2,

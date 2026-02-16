@@ -1,15 +1,17 @@
 import { ArrowLeftRight } from 'lucide-react';
 import systems from '@shared/systems';
 import { useLayoutStore } from '../store/layout';
+import { useThemeStore } from '../store/theme';
 import { BaseView } from './baseView';
 import { Navigation } from './navigation';
 import styles from './shell.module.css';
 
 const { shellRoot, mainLayout, systemDivider, swapColumnsButton, border } = styles;
 
-const SWAP_COLUMN_ICON_SIZE = 22;
+const SWAP_COLUMN_ICON_SIZE = 24;
 
 export const Shell = () => {
+  const theme = useThemeStore(state => state.theme);
   const systemOrder = useLayoutStore(state => state.systemOrder);
   const updateSystemOrder = useLayoutStore(state => state.updateSystemOrder);
 
@@ -34,7 +36,7 @@ export const Shell = () => {
   );
 
   return (
-    <div id="shell" className={shellRoot}>
+    <div id="shell" className={shellRoot} data-theme={theme}>
       <Navigation />
       <main className={mainLayout}>
         {sortedSystems.map((system, index) => (

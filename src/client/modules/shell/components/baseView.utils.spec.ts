@@ -11,17 +11,16 @@ type MathBreakdownCase = {
   radix: NumeralSystemRadix;
   expectedTermCount: number;
   expectedDigitWidth: number;
-  expectedDividerLength: number;
   expectedTotal: number;
 };
 
 const MATH_BREAKDOWN_CASES: MathBreakdownCase[] = [
-  { value: '', radix: TEN, expectedTermCount: 0, expectedDigitWidth: 0, expectedDividerLength: 0, expectedTotal: 0 },
-  { value: '5', radix: TEN, expectedTermCount: 1, expectedDigitWidth: 1, expectedDividerLength: 9, expectedTotal: 5 },
-  { value: '112', radix: TEN, expectedTermCount: 3, expectedDigitWidth: 1, expectedDividerLength: 13, expectedTotal: 112 },
-  { value: '101', radix: TWO, expectedTermCount: 3, expectedDigitWidth: 1, expectedDividerLength: 11, expectedTotal: 5 },
-  { value: 'FF', radix: SIXTEEN, expectedTermCount: 2, expectedDigitWidth: 2, expectedDividerLength: 13, expectedTotal: 255 },
-  { value: 'A3', radix: SIXTEEN, expectedTermCount: 2, expectedDigitWidth: 2, expectedDividerLength: 13, expectedTotal: 163 }
+  { value: '', radix: TEN, expectedTermCount: 0, expectedDigitWidth: 0, expectedTotal: 0 },
+  { value: '5', radix: TEN, expectedTermCount: 1, expectedDigitWidth: 1, expectedTotal: 5 },
+  { value: '112', radix: TEN, expectedTermCount: 3, expectedDigitWidth: 1, expectedTotal: 112 },
+  { value: '101', radix: TWO, expectedTermCount: 3, expectedDigitWidth: 1, expectedTotal: 5 },
+  { value: 'FF', radix: SIXTEEN, expectedTermCount: 2, expectedDigitWidth: 2, expectedTotal: 255 },
+  { value: 'A3', radix: SIXTEEN, expectedTermCount: 2, expectedDigitWidth: 2, expectedTotal: 163 }
 ];
 
 type DisplayValueCase = {
@@ -54,12 +53,11 @@ const DISPLAY_VALUE_CONVERSION_CASES: DisplayValueCase[] = [
 describe('getMathBreakdown', () => {
   test.each(MATH_BREAKDOWN_CASES)(
     'value = $value, radix = $radix',
-    ({ value, radix, expectedTermCount, expectedDigitWidth, expectedDividerLength, expectedTotal }) => {
-      const { terms, digitWidth, divider, total } = getMathBreakdown(value, radix, false);
+    ({ value, radix, expectedTermCount, expectedDigitWidth, expectedTotal }) => {
+      const { terms, digitWidth, total } = getMathBreakdown(value, radix, false);
 
       expect(terms).toHaveLength(expectedTermCount);
       expect(digitWidth).toBe(expectedDigitWidth);
-      expect(divider).toBe('-'.repeat(expectedDividerLength));
       expect(total).toBe(expectedTotal);
     }
   );

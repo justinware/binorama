@@ -7,7 +7,7 @@
     "compile": "tsc --project tsconfig.app.json",
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint src",
+    "lint": "oxlint",
     "test": "vitest"
   },
   "devDependencies": {
@@ -25,9 +25,11 @@
   },
   "dependencies": {
     "@radix-ui/react-switch": "^1.2.6",
+    "@radix-ui/react-toolbar": "^1.1.11",
     "lucide-react": "^0.563.0",
     "motion": "^12.29.2",
     "neverthrow": "^8.2.0",
+    "oxlint": "^1.47.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "rxjs": "^7.8.2",

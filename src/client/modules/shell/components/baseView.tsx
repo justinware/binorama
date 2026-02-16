@@ -17,8 +17,7 @@ const {
   sectionMath,
   sectionVisual,
   mathTerms,
-  mathTotal,
-  digitHighlight
+  mathTotal
 } = style;
 
 type BaseViewProps = NumeralSystem & { position: number };
@@ -70,9 +69,6 @@ export const BaseView = ({ type, label, radix, isValid, position }: BaseViewProp
               {mathBreakdown.map((term, index) => (
                 <div key={index}>{term}</div>
               ))}
-              {/* {displayValue && (
-                <div className={digitHighlight} style={{ width: `calc(${digitWidth}ch + 6px)` }} />
-              )} */}
               {displayValue && (
                 <div
                   className={mathTotal}
