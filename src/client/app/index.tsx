@@ -2,11 +2,11 @@
 // import CssBaseline from '@mui/material/CssBaseline';
 // import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
+import '@radix-ui/themes/styles.css';
+import { Theme } from '@radix-ui/themes';
 import { Shell } from '@client/modules/shell/components/shell';
+import { useThemeStore } from '@client/modules/shell/store/theme';
 import './index.css';
-// import './fonts';
-import { Result } from 'neverthrow';
-import { useEffect } from 'react';
 
 // import trpc from './trpc';
 // import { CodeFile } from '@shared/types';
@@ -19,17 +19,13 @@ import { useEffect } from 'react';
 // const queryClient = new QueryClient();
 
 const App = () => {
-  // const getFile = async () => {
-  //   const result = await trpc.getCodeModelByPath.query('src/server/index.ts');
+  const theme = useThemeStore(state => state.theme);
 
-  //   console.log(result);
-  // }
-
-  // useEffect(() => {
-  //   getFile();
-  // }, []);
-
-  return <Shell />;
+  return (
+    <Theme appearance={theme} accentColor="indigo">
+      <Shell />
+    </Theme>
+  );
 };
 
 export default App;

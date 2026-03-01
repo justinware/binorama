@@ -4,9 +4,9 @@
   justify-content: space-between;
   height: 68px;
   width: 100%;
-  padding-left: var(--sizing-unit);
-  padding-right: var(--sizing-unit);
-  border-bottom: dashed 1px var(--text-colour);
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+  border-bottom: dashed 1px var(--gray-11);
 
   h1 {
     font-size: 36px;
@@ -16,7 +16,7 @@
   .toolbar {
     display: flex;
     align-items: center;
-    gap: var(--half-spacing);
+    gap: var(--space-2);
 
     .toolbarSeparator {
       width: 1px;
@@ -45,13 +45,13 @@
   .switchGroup {
     display: flex;
     align-items: center;
-    gap: var(--half-spacing);
+    gap: var(--space-2);
 
     sup {
       line-height: 0;
     }
 
-    .switchRoot {
+    /* .switchRoot {
       width: 42px;
       height: 24px;
       background-color: var(--text-colour);
@@ -81,6 +81,6 @@
           transform: translateX(21px);
         }
       }
-    }
+    } */
   }
 }

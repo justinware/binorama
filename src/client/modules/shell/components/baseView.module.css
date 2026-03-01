@@ -1,37 +1,22 @@
 .baseViewRoot {
-  width: 33.33%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  padding: var(--half-spacing);
+  flex: 1;
+  padding: var(--space-2);
   padding-left: 24px;
-
-  &:nth-child(1) {
-    left: 0;
-  }
-
-  &:nth-child(2) {
-    left: 33.33%;
-  }
-
-  &:nth-child(3) {
-    left: 66.66%;
-  }
 
   .content {
     display: flex;
     flex-direction: column;
     flex: 1;
     height: 100%;
-    gap: var(--half-spacing);
+    gap: var(--space-2);
 
     &:nth-child(1) {
-      padding-top: var(--half-spacing);
+      padding-top: var(--space-2);
     }
   }
 
   .section {
-    padding: var(--half-spacing);
+    padding: var(--space-2);
     text-align: left;
   }
 
@@ -50,7 +35,7 @@
       top: 50%;
       transform: translateY(-50%) translateX(-4px);
       font-size: 32px;
-      color: var(--terminal-colour);
+      color: var(--accent-9);
       opacity: 0;
       transition:
         opacity 0.2s ease,
@@ -68,13 +53,13 @@
       background: transparent;
       border: none;
       outline: none;
-      color: var(--terminal-colour);
-      border-bottom: solid 1px var(--border-colour);
+      color: var(--accent-9);
+      border-bottom: solid 1px var(--gray-6);
       transition: all 0.2s ease;
       width: 100%;
 
       &:focus {
-        border-bottom-color: var(--terminal-colour);
+        border-bottom-color: var(--accent-9);
         border-bottom-width: 2px;
       }
     }
@@ -95,7 +80,7 @@
       width: max-content;
 
       strong {
-        color: var(--terminal-colour);
+        color: var(--accent-9);
       }
 
       sup {
@@ -115,14 +100,14 @@
         top: 0;
         bottom: 0;
         left: calc(2ch - 9px);
-        border: 1px dashed var(--terminal-colour);
+        border: 1px dashed var(--accent-9);
         pointer-events: none;
       }
     }
 
     .mathTotal {
       font-weight: bold;
-      border-top: 1px solid var(--border-colour);
+      border-top: 1px solid var(--gray-11);
       margin-top: 0.5em;
       padding-top: 0.5em;
       text-align: right;
