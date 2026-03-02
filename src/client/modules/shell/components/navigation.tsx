@@ -5,7 +5,7 @@ import { LIGHT, useThemeStore } from '../store/theme';
 import styles from './navigation.module.css';
 
 // const { navigationRoot, switchGroup, switchRoot, switchThumb, toolbar, toolbarSeparator, toolbarButton } = styles;
-const { navigationRoot } = styles;
+const { navigationRoot, switchGroup } = styles;
 
 const THEME_ICON_SIZE = 18;
 
@@ -19,7 +19,7 @@ export const Navigation = () => {
     <header id="navigation" className={navigationRoot}>
       <Heading as="h1">Binorama</Heading>
       {/* <Toolbar.Root className={toolbar}> */}
-      <div>
+      <div className={switchGroup}>
         <span>100</span>
         <Switch
           defaultChecked
