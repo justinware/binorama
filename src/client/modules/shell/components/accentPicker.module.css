@@ -1,0 +1,49 @@
+.picker {
+  padding: var(--space-3) !important;
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--space-3);
+
+    .swatch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-1);
+      border: none;
+      background: none;
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.1s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      .swatchBox {
+        display: block;
+        width: 36px;
+        height: 36px;
+        border-radius: var(--radius-2);
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+        transition: outline-color 0.1s ease;
+      }
+
+      .swatchLabel {
+        font-size: 10px;
+        color: var(--gray-11);
+        text-align: center;
+        line-height: 1;
+        text-transform: capitalize;
+      }
+    }
+
+    .swatchActive {
+      .swatchBox {
+        outline-color: var(--accent-9);
+      }
+    }
+  }
+}

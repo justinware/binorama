@@ -20,9 +20,10 @@ import './index.css';
 
 const App = () => {
   const theme = useThemeStore(state => state.theme);
+  const accent = useThemeStore(state => state.accent);
 
   return (
-    <Theme appearance={theme} accentColor="indigo">
+    <Theme appearance={theme} accentColor={accent}>
       <Shell />
     </Theme>
   );

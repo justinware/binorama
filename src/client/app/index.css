@@ -1,6 +1,12 @@
+/* Radix Themes Overrides */
 .radix-themes {
   --default-font-family: 'IBM Plex Mono', monospace;
   --heading-font-family: 'Bebas Neue', sans-serif;
+}
+
+/* Variables */
+:root {
+  --section-border: dashed 1px var(--gray-10);
 }
 
 /* Typography */

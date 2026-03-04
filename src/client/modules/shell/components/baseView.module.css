@@ -35,7 +35,7 @@
       top: 50%;
       transform: translateY(-50%) translateX(-4px);
       font-size: 32px;
-      color: var(--accent-9);
+      color: var(--accent-7);
       opacity: 0;
       transition:
         opacity 0.2s ease,
@@ -59,7 +59,7 @@
       width: 100%;
 
       &:focus {
-        border-bottom-color: var(--accent-9);
+        border-bottom-color: var(--accent-7);
         border-bottom-width: 2px;
       }
     }

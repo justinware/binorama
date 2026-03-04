@@ -5,81 +5,32 @@
   height: 68px;
   padding-left: var(--space-4);
   padding-right: var(--space-4);
-  border-bottom: dashed 1px var(--gray-11);
+  border-bottom: var(--section-border);
 
   h1 {
     font-size: 36px;
-    margin-top: 4px;
+    margin-top: 6px;
   }
 
-  .toolbar {
+  .controls {
     display: flex;
     align-items: center;
-    gap: var(--space-2);
+    gap: var(--space-4);
 
-    .toolbarSeparator {
-      width: 1px;
-      height: 24px;
-      background-color: var(--border-colour);
+    .separator {
+      width: 0;
+      align-self: stretch;
+      border-left: solid 1px var(--gray-10);
     }
 
-    .toolbarButton {
+    .switchGroup {
       display: flex;
       align-items: center;
-      justify-content: center;
-      background: none;
-      border: 1px solid var(--border-colour);
-      border-radius: 6px;
-      color: var(--text-colour);
-      padding: 6px;
-      cursor: pointer;
-      transition: border-color 0.2s ease;
+      gap: var(--space-2);
 
-      &:hover {
-        border-color: var(--text-colour);
+      sup {
+        line-height: 0;
       }
     }
-  }
-
-  .switchGroup {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-
-    sup {
-      line-height: 0;
-    }
-
-    /* .switchRoot {
-      width: 42px;
-      height: 24px;
-      background-color: var(--text-colour);
-      border-radius: 12px;
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      position: relative;
-      opacity: 0.4;
-      transition: opacity 0.2s ease;
-
-      &[data-state='checked'] {
-        opacity: 1;
-        background-color: var(--terminal-colour);
-      }
-
-      .switchThumb {
-        display: block;
-        width: 18px;
-        height: 18px;
-        background-color: var(--background-colour);
-        border-radius: 50%;
-        transition: transform 0.2s ease;
-        transform: translateX(3px);
-
-        &[data-state='checked'] {
-          transform: translateX(21px);
-        }
-      }
-    } */
   }
 }

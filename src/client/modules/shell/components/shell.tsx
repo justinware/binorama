@@ -1,11 +1,12 @@
 import { ArrowLeftRight } from 'lucide-react';
+import { IconButton } from '@radix-ui/themes';
 import systems from '@shared/systems';
 import { useLayoutStore } from '../store/layout';
 import { BaseView } from './baseView';
 import { Navigation } from './navigation';
 import styles from './shell.module.css';
 
-const { shellRoot, mainLayout, systemDivider, swapColumnsButton, border } = styles;
+const { shellRoot, mainLayout, systemDivider, border } = styles;
 
 const SWAP_COLUMN_ICON_SIZE = 24;
 
@@ -26,9 +27,9 @@ export const Shell = () => {
   const getDivider = (index: number) => (
     <div className={systemDivider}>
       <div className={border} />
-      <button className={swapColumnsButton} onClick={() => swapColumns(index, index + 1)}>
+      <IconButton variant="ghost" onClick={() => swapColumns(index, index + 1)}>
         <ArrowLeftRight size={SWAP_COLUMN_ICON_SIZE} />
-      </button>
+      </IconButton>
       <div className={border} />
     </div>
   );

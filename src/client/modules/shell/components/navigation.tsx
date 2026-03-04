@@ -1,11 +1,10 @@
 import { Moon, Sun } from 'lucide-react';
-import * as Toolbar from '@radix-ui/react-toolbar';
-import { Heading, Switch } from '@radix-ui/themes';
+import { Heading, IconButton, Switch } from '@radix-ui/themes';
 import { LIGHT, useThemeStore } from '../store/theme';
+import { AccentPicker } from './accentPicker';
 import styles from './navigation.module.css';
 
-// const { navigationRoot, switchGroup, switchRoot, switchThumb, toolbar, toolbarSeparator, toolbarButton } = styles;
-const { navigationRoot, switchGroup } = styles;
+const { navigationRoot, controls, switchGroup, separator } = styles;
 
 const THEME_ICON_SIZE = 18;
 
@@ -18,23 +17,24 @@ export const Navigation = () => {
   return (
     <header id="navigation" className={navigationRoot}>
       <Heading as="h1">Binorama</Heading>
-      {/* <Toolbar.Root className={toolbar}> */}
-      <div className={switchGroup}>
-        <span>100</span>
-        <Switch
-          defaultChecked
-          checked={exponentNotation}
-          onCheckedChange={toggleExponentNotation}
-        />
-        <span>
-          10<sup>2</sup>
-        </span>
-      </div>
-      {/* <Toolbar.Separator className={toolbarSeparator} />
-        <Toolbar.Button className={toolbarButton} onClick={toggleTheme}>
+      <div className={controls}>
+        <div className={switchGroup}>
+          <span>100</span>
+          <Switch
+            defaultChecked
+            checked={exponentNotation}
+            onCheckedChange={toggleExponentNotation}
+          />
+          <span>
+            10<sup>2</sup>
+          </span>
+        </div>
+        <span className={separator} />
+        <AccentPicker />
+        <IconButton variant="ghost" onClick={toggleTheme}>
           {theme === LIGHT ? <Moon size={THEME_ICON_SIZE} /> : <Sun size={THEME_ICON_SIZE} />}
-        </Toolbar.Button>
-      </Toolbar.Root> */}
+        </IconButton>
+      </div>
     </header>
   );
 };
