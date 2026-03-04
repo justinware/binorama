@@ -23,7 +23,7 @@ const App = () => {
   const accent = useThemeStore(state => state.accent);
 
   return (
-    <Theme appearance={theme} accentColor={accent}>
+    <Theme appearance={theme} accentColor={accent} radius="large" grayColor="slate">
       <Shell />
     </Theme>
   );

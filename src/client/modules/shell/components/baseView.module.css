@@ -1,7 +1,6 @@
 .baseViewRoot {
   flex: 1;
-  padding: var(--space-2);
-  padding-left: 24px;
+  padding: var(--space-4);
 
   .content {
     display: flex;

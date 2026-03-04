@@ -6,6 +6,7 @@ import { useThemeStore } from '../store/theme';
 import { useValueStore } from '../store/value';
 import { getDisplayValue, getMathBreakdown } from './baseView.utils';
 import style from './baseView.module.css';
+import { Reset } from '@radix-ui/themes';
 
 const {
   baseViewRoot,
@@ -55,13 +56,15 @@ export const BaseView = ({ type, label, radix, isValid, position }: BaseViewProp
       <div className={content}>
         <h2 className={`${section} ${sectionTitle}`}>{label}</h2>
         <div className={`${section} ${sectionInput}`}>
-          <input
-            ref={inputRef}
-            type="text"
-            placeholder={`${(42).toString(radix).toUpperCase()}...`}
-            value={displayValue}
-            onChange={e => handleChange(e.target.value)}
-          />
+          <Reset>
+            <input
+              ref={inputRef}
+              type="text"
+              placeholder={`${(42).toString(radix).toUpperCase()}...`}
+              value={displayValue}
+              onChange={e => handleChange(e.target.value)}
+            />
+          </Reset>
         </div>
         <div className={sectionRow}>
           <div className={`${section} ${sectionMath}`}>
