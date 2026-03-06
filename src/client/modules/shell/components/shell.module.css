@@ -5,11 +5,10 @@
 
   .shellContainer {
     flex: 1;
-    min-height: 0;
     display: flex;
     flex-direction: column;
 
-    .mainLayout {
+    main {
       display: flex;
       flex: 1;
       height: calc(100vh - 116px);
@@ -17,11 +16,12 @@
     }
   }
 
-  .footer {
+  footer {
     height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: var(--space-1);
     border-top: var(--section-border);
     font-size: 0.8rem;
   }

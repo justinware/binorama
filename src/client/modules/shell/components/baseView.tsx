@@ -12,7 +12,6 @@ const {
   baseViewRoot,
   content,
   section,
-  sectionTitle,
   sectionInput,
   sectionRow,
   sectionMath,
@@ -54,8 +53,8 @@ export const BaseView = ({ type, label, radix, isValid, position }: BaseViewProp
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
     >
       <div className={content}>
-        <h2 className={`${section} ${sectionTitle}`}>{label}</h2>
-        <div className={`${section} ${sectionInput}`}>
+        <h2>{label}</h2>
+        {/* <div className={`${section} ${sectionInput}`}>
           <Reset>
             <input
               ref={inputRef}
@@ -83,7 +82,7 @@ export const BaseView = ({ type, label, radix, isValid, position }: BaseViewProp
             </div>
           </div>
           <div className={`${section} ${sectionVisual}`}>Visual breakdown</div>
-        </div>
+        </div> */}
       </div>
     </motion.div>
   );

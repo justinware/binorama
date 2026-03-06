@@ -1,4 +1,4 @@
-import { ArrowLeftRight } from 'lucide-react';
+import { ArrowLeftRight, Bot, Heart } from 'lucide-react';
 import { Container, IconButton } from '@radix-ui/themes';
 import systems from '@shared/systems';
 import { useLayoutStore } from '../store/layout';
@@ -6,7 +6,7 @@ import { BaseView } from './baseView';
 import { Navigation } from './navigation';
 import styles from './shell.module.css';
 
-const { shellRoot, shellContainer, mainLayout, systemDivider, border, footer } = styles;
+const { shellRoot, shellContainer, systemDivider, border } = styles;
 
 const SWAP_COLUMN_ICON_SIZE = 24;
 
@@ -38,7 +38,7 @@ export const Shell = () => {
     <div id="shell" className={shellRoot}>
       <Navigation />
       <Container className={shellContainer}>
-        <main className={mainLayout}>
+        <main>
           <BaseView key={sortedSystems[0].type} {...sortedSystems[0]} position={0} />
           {getDivider(0)}
           <BaseView key={sortedSystems[1].type} {...sortedSystems[1]} position={1} />
@@ -46,7 +46,9 @@ export const Shell = () => {
           <BaseView key={sortedSystems[2].type} {...sortedSystems[2]} position={2} />
         </main>
       </Container>
-      <footer className={footer}>Made with 💙 and 🤖 by Justin</footer>
+      <footer>
+        Made with <Heart size={16} /> and <Bot size={16} /> by Justin
+      </footer>
     </div>
   );
 };

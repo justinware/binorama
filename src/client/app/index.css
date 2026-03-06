@@ -2,24 +2,23 @@
 .radix-themes {
   --default-font-family: 'IBM Plex Mono', monospace;
   --heading-font-family: 'Bebas Neue', sans-serif;
-  --default-font-weight: 300;
 }
 
 .dark,
 .dark-theme {
-  --color-background: #272325;
+  --section-border: dashed 1px var(--gray-9);
 }
 
-/* Variables */
-:root {
+.light,
+.light-theme {
   --section-border: dashed 1px var(--gray-9);
 }
 
 /* Typography */
 body {
   font-feature-settings: 'liga' 0;
-  line-height: 1.7;
-  font-weight: 300;
+  line-height: 1.8;
+  font-weight: var(--default-font-weight);
   font-style: normal;
   margin: 0;
   width: 100%;
@@ -35,6 +34,7 @@ body {
     font-style: normal;
     letter-spacing: 2px;
     line-height: 1.1;
+    margin: 0;
   }
 
   button,

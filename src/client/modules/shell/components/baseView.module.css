@@ -1,6 +1,7 @@
 .baseViewRoot {
   flex: 1;
   padding: var(--space-4);
+  background-color: lime;
 
   .content {
     display: flex;
@@ -8,10 +9,11 @@
     flex: 1;
     height: 100%;
     gap: var(--space-2);
+    background-color: red;
 
-    &:nth-child(1) {
+    /* &:nth-child(1) {
       padding-top: var(--space-2);
-    }
+    } */
   }
 
   .section {
@@ -19,9 +21,11 @@
     text-align: left;
   }
 
-  .sectionTitle {
+  h2 {
+    /* padding: var(--space-2); */
     text-align: center;
     font-size: 32px;
+    margin: 0;
   }
 
   .sectionInput {
